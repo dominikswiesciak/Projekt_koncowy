@@ -56,7 +56,7 @@ public class CarRestController {
 
     @GetMapping("/availableCars")
     public List<CarDto> getAvailableCars() {
-        return carService.getAvailableCars();
+        return carService.getAvailableCarsDto();
     }
 
     @PostMapping("/setCarStatus/{id}/{carStatus}")

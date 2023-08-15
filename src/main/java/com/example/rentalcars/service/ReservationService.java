@@ -96,15 +96,13 @@ public class ReservationService {
     }
 
     public  BigDecimal calculateRentalCost(ReservationModel reservation) {
-//        BigDecimal dailyRentalPrice =  carRepository.findById(reservation.getCar().getId()).get().getPrice();
+
         BigDecimal dailyRentalPrice = reservation.getCar().getPrice();
         LocalDate startDate = reservation.getDateFrom();
         LocalDate endDate = reservation.getDateTo();
 
-        // Obliczamy różnicę między datami i zaokrąglamy w górę do pełnych dni
         long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate) + 1;
 
-        // Obliczamy koszt rezerwacji (cena za dzień * liczba dni)
         BigDecimal totalCost = dailyRentalPrice.multiply(BigDecimal.valueOf(numberOfDays));
 
         if (reservation.getReceptionVenue().equals(reservation.getReturnVenue())){
