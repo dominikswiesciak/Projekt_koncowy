@@ -86,25 +86,6 @@ public class CustomerView extends VerticalLayout {
         closeEditor();
     }
 
-//    private Component getToolbar() {
-//        Button addCustomerButton = new Button("Moje dane");
-//
-//        if (customerService.checkIfCustomerExist()) {
-//
-//            addCustomerButton.addClickListener(e -> addCustomer());
-//
-//        } else {
-//
-//            addCustomerButton.addClickListener(e -> editCustomer(customerService.findCustomerByName(userService.getNameOfLoggedUser())));
-//
-//        }
-//
-//
-//        HorizontalLayout toolbar = new HorizontalLayout(addCustomerButton);
-//        toolbar.addClassName("toolbar");
-//        return toolbar;
-//    }
-
     private Component getToolbar() {
 
         Button addCustomerButton = new Button("Wprowadź swoje dane");
