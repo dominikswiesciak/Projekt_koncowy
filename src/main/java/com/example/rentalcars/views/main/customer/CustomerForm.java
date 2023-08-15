@@ -41,7 +41,8 @@ public class CustomerForm extends FormLayout {
 
     public CustomerForm() {
         binder.bindInstanceFields(this);
-        binder.forField(email).withValidator(new EmailValidator("Niepoprawny email")).bind(CustomerModel::getEmail, CustomerModel::setEmail);
+        binder.forField(email).withValidator(new EmailValidator(
+                "Niepoprawny email")).bind(CustomerModel::getEmail, CustomerModel::setEmail);
         //       binder.forField(email).bind(customer -> customer.getUser().getEmail(), (customer, email) -> customer.getUser().setEmail(email));
         add(
                 firstName,
@@ -83,6 +84,7 @@ public class CustomerForm extends FormLayout {
             Notification.show("Zapisano").setPosition(Notification.Position.MIDDLE);
         } catch (ValidationException e) {
             e.printStackTrace();
+            Notification.show("Niepoprawny adres email").setPosition(Notification.Position.MIDDLE);
         }
     }
 
